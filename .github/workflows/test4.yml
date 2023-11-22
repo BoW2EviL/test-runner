@@ -6,7 +6,7 @@ on:
       - '*'
 
 jobs:
-  test:
+  test4:
     runs-on: self-hosted
 
     strategy:
