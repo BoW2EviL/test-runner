@@ -1,0 +1,26 @@
+name: Test with Docker
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    services:
+      myservice:
+        image: python:3.8
+        ports:
+          - 5432:5432  # Adjust the ports if needed
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Run tests in Docker
+      run: |
+        docker exec myservice python -m pip install --upgrade pip
+        docker exec myservice python -m pip install -r requirements.txt  # Adjust based on your project structure
+        docker exec myservice python -m unittest discover
