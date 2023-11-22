@@ -1,4 +1,4 @@
-name: Test with Docker
+-name: Test with Docker
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - '*'
 
 jobs:
-  test:
+  docker-test:
     runs-on: self-hosted
 
     services:
